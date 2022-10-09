@@ -19,7 +19,7 @@ function JoinBlock({ onLogin }) {
             roomId,
             userName
         }
-        await axios.post("http://localhost:8888/rooms", obj)
+        await axios.post("https://chat-lite738733.herokuapp.com/rooms", obj)
         onLogin(obj)
     }
 

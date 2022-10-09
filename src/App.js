@@ -24,7 +24,7 @@ function App() {
       payload: obj,
     })
     socket.emit("ROOM:JOIN", obj);
-    const { data } = await axios.get(`http://localhost:8888/rooms/${obj.roomId}`)
+    const { data } = await axios.get(`https://chat-lite738733.herokuapp.com/rooms/${obj.roomId}`)
     console.log(data)
     dispatch({
       type: 'SET_DATA',

@@ -1,5 +1,5 @@
 import io from "socket.io-client"
 
-const socket = io("http://localhost:8888")
+const socket = io("https://chat-lite738733.herokuapp.com")
 
 export default socket;
