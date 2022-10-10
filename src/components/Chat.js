@@ -32,19 +32,27 @@ function Chat({ users, messages, roomId, userName, addMessage }) {
                 <b>Онлайн:{users.length}</b>
                 <ul>
                     {users.map((name, index) => (
-                        <li key={name + index}>{name}</li>
+                        name === userName ? <li className="users__active" key={name + index}>{name}</li> : <li className="users" key={name + index}>{name}</li>
                     ))}
                 </ul>
             </div>
             <div className="chat-messages">
                 <div ref={messageRef} className="messages">
                     {messages.map((message, index) => (
-                        <div className="message" key={message + index}>
-                            <p>{message.text}</p>
-                            <div>
-                                <span>{message.userName}</span>
+                        message.userName === userName ?
+                            <div className="message__active" key={message + index}>
+                                <p>{message.text}</p>
+                                <div>
+                                    <span>{message.userName}</span>
+                                </div>
                             </div>
-                        </div>
+                            :
+                            <div className="message" key={message + index}>
+                                <p>{message.text}</p>
+                                <div>
+                                    <span>{message.userName}</span>
+                                </div>
+                            </div>
                     ))}
                 </div>
                 <form>

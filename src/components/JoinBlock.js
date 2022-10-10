@@ -28,11 +28,9 @@ function JoinBlock({ onLogin }) {
 
     return (
         <div className='container-wrapper'>
-            <TextField color="warning" id="outlined-basic" label="ID room" variant="outlined" value={roomId} onChange={e => setRoomID(e.target.value)} />
-            <TextField color="warning" id="outlined-basic" label="Name" variant="outlined" value={userName} onChange={e => setUserName(e.target.value)} />
-            <Button variant="outlined" color="error" onClick={onEnter}>
-                Connect
-            </Button>
+            <input placeholder="ID room" value={roomId} onChange={e => setRoomID(e.target.value)} />
+            <input placeholder="Name" value={userName} onChange={e => setUserName(e.target.value)} />
+            <button onClick={onEnter}>Connect</button>
         </div>
     )
 }
