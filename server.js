@@ -24,6 +24,10 @@ const rooms = new Map();
 
 // Создаем .Map с комнатами в которых будут хронится комнаты с пользователями и сообщениями 
 
+app.get("/rooms", (req, res) => {
+    res.json(rooms);
+})
+
 app.get("/rooms/:id", (req, res) => {
     const { id: roomId } = req.params;
     const obj = rooms.has(roomId) ?

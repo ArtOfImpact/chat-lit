@@ -37,10 +37,19 @@ body {
 .container-wrapper {
   display: flex;
   flex-direction: column;
-  height: 280px;
+  height: 360px;
   width: 300px;
   justify-content: space-around;
   align-items: center;
+}
+
+.container-wrapper>h1 {
+  margin: 0;
+}
+
+.container-wrapper>h3 {
+  margin: 0;
+  width: 80%;
 }
 
 .container-wrapper>input {
