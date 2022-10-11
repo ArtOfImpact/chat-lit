@@ -8,16 +8,25 @@ function Chat({ users, messages, roomId, userName, addMessage }) {
     const messageRef = useRef(null)
 
     const onSendMessage = () => {
-        socket.emit("ROOM:NEW_MESSAGE", {
-            userName,
-            roomId,
-            text: messageValue,
-        })
-        addMessage({
-            userName,
-            text: messageValue,
-        })
-        setMessageValue("")
+        if (messageValue.length > 0) {
+            socket.emit("ROOM:NEW_MESSAGE", {
+                userName,
+                roomId,
+                text: messageValue,
+            })
+            addMessage({
+                userName,
+                text: messageValue,
+            })
+            setMessageValue("")
+        }
+    }
+
+    const SearchKey = (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            onSendMessage()
+        }
     }
 
     useEffect(() => {
@@ -27,9 +36,9 @@ function Chat({ users, messages, roomId, userName, addMessage }) {
     return (
         <div className="chat">
             <div className="chat-users">
-                Комната: <b>{roomId}</b>
+                Комната: <span>{roomId}</span>
                 <hr />
-                <b>Онлайн:{users.length}</b>
+                <span>Онлайн:{users.length}</span>
                 <ul>
                     {users.map((name, index) => (
                         name === userName ? <li className="users__active" key={name + index}>{name}</li> : <li className="users" key={name + index}>{name}</li>
@@ -57,6 +66,7 @@ function Chat({ users, messages, roomId, userName, addMessage }) {
                 </div>
                 <form>
                     <textarea
+                        onKeyDown={SearchKey}
                         value={messageValue}
                         onChange={(e) => setMessageValue(e.target.value)}
                         className="form-control"

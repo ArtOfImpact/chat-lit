@@ -104,7 +104,6 @@ body {
 .chat-users {
   border-right: 1px solid rgba(159, 183, 197, 0.1);
   padding: 20px;
-  width: 200px;
   background-color: #f6f9fa;
 }
 
@@ -114,6 +113,7 @@ body {
   justify-content: space-between;
   flex: 1;
   padding: 30px;
+  width: 450px;
 }
 
 .messages {
@@ -122,8 +122,24 @@ body {
   overflow: auto;
 }
 
+.messages::-webkit-scrollbar {
+  width: 10px;
+}
+
+.messages::-webkit-scrollbar-track {
+  -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+  background-color: #f9f9fd;
+  border-radius: 10px;
+}
+
+.messages::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: linear-gradient(180deg, #00c6fb, #005bea);
+}
+
 .message {
   margin-bottom: 20px;
+  padding: 10px;
 }
 
 .message p {
@@ -134,6 +150,8 @@ body {
   padding: 10px 15px 15px;
   color: #fff;
   margin-bottom: 2px;
+  height: auto;
+  word-break: break-all;
 }
 
 .message span {
@@ -145,6 +163,10 @@ body {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+.chat-users>span {
+  font-weight: 500;
 }
 
 .users {
@@ -170,6 +192,7 @@ body {
   flex-direction: column;
   /* width: 30%; */
   align-items: end;
+  padding: 10px;
 }
 
 .message__active>p {
@@ -180,6 +203,8 @@ body {
   padding: 10px 15px 15px;
   color: #fff;
   margin-bottom: 2px;
+  height: auto;
+  word-break: break-all;
 }
 
 .chat-messages form {
@@ -189,7 +214,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: end;
-  width: 300px;
 }
 
 .chat-messages form textarea {
@@ -198,6 +222,7 @@ body {
   font-size: 16px;
   font-weight: 500;
   border: 0px solid;
+  resize: none;
 }
 
 form>button {
